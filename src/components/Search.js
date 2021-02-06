@@ -19,11 +19,18 @@ const Search = () => {
             })
             setResults(data.query.search);
         }
-        // Don't make a request until user start typing in term
-        // if (term) {
-        //     search();
-        // }
-        search();
+        // search occurs if user pauses longer that .5s
+        const timeoutId = setTimeout(() => {
+            if (term) {
+                search();
+            }
+        }, 500);
+
+        // cleanup function
+        return () => {
+            clearTimeout(timeoutId);
+        };
+        
     }, [term]);
 
     const renderedResults = results.map((result) => {
