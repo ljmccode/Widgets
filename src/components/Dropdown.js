@@ -2,6 +2,11 @@ import React from 'react';
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
     const renderedOptions = options.map((option) => {
+        if (selected.value === option.value) {
+            // if value already selected, don't render anything
+            return null
+        }
+
         return (
             <div key={option.value} 
                 className="item"
