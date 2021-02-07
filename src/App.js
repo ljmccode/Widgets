@@ -40,8 +40,8 @@ const App = () => {
     const [showDropdown, setShowDropdown] = useState(true)
 
     return (
-        <div>
-            <button onClick={()=> setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
+        <div style={{ margin: 50 }}>
+            <button style={{ marginBottom: 20 }}className="ui button" onClick={()=> setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
             {showDropdown ?
                 <Dropdown 
                     selected={selected} 
@@ -49,7 +49,6 @@ const App = () => {
                     onSelectedChange={setSelected}
                 /> : null
             }
-            <h3 style={{ color: selected.value }}>{`This text is ${selected.value}`}</h3>
         </div>
     )
 };
