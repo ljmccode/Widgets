@@ -43,24 +43,26 @@ export default () => {
     return (
         <div>
             <Header />
-            <Route path="/">
-                <Accordion items={items}/>
-            </Route>
-            <Route path="/list">
-                <Search />
-            </Route>
-            <Route path="/dropdown">
-                <Dropdown
-                    label="Select a color"
-                    options={options}
-                    selected={selected}
-                    onSelectedChange={setSeleted}
-                    />
-                <h3 style={{ color: selected.value }}>{`This text is ${selected.value}`}</h3>
-            </Route>
-            <Route path="/translate">
-                <Translate/>
-            </Route>
+            <div className="ui container">
+                <Route path="/">
+                    <Accordion items={items}/>
+                </Route>
+                <Route path="/list">
+                    <Search />
+                </Route>
+                <Route path="/dropdown">
+                    <Dropdown
+                        label="Select a color"
+                        options={options}
+                        selected={selected}
+                        onSelectedChange={setSeleted}
+                        />
+                    <h3 style={{ color: selected.value }}>{`This text is ${selected.value}`}</h3>
+                </Route>
+                <Route path="/translate">
+                    <Translate/>
+                </Route>
+            </div>
         </div>
     )
 }
