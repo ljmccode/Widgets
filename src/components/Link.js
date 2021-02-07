@@ -1,4 +1,5 @@
 import React from 'react';
+import './Link.css'
 
 const Link = ({ href, className, children }) => {
     const onClick = (e) => {
