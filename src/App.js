@@ -20,15 +20,15 @@ import Dropdown from './components/Dropdown';
 
 const options = [
     {
-        label: 'The color red',
+        label: 'Red',
         value: 'red'
     },
     {
-        label: 'The color green',
+        label: 'Green',
         value: 'green'
     },
     {
-        label: 'The color blue',
+        label: 'Blue',
         value: 'blue'
     }
 ];
@@ -49,6 +49,7 @@ const App = () => {
                     onSelectedChange={setSelected}
                 /> : null
             }
+            <h3 style={{ color: selected.value }}>{`This text is ${selected.value}`}</h3>
         </div>
     )
 };
