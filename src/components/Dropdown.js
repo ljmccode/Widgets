@@ -34,21 +34,24 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
         )
     })
     return (
-        <div ref={ref} className="ui form">
-            <div className="field">
-                <label className="label">Select a Color</label>
-                <div 
-                    onClick={() => setOpen(!open)} 
-                    className={`ui selection dropdown ${open ? 'visible active' : ''}`}
-                >
-                    <i className="dropdown icon"></i>
-                    <div className="text">{selected.label}</div>
-                    <div className={`menu ${open ? 'visible transition' : ''}`}>
-                        {renderedOptions}
+        <React.Fragment>
+            <div ref={ref} className="ui form">
+                <div className="field">
+                    <label className="label">Select a Color</label>
+                    <div 
+                        onClick={() => setOpen(!open)} 
+                        className={`ui selection dropdown ${open ? 'visible active' : ''}`}
+                    >
+                        <i className="dropdown icon"></i>
+                        <div className="text">{selected.label}</div>
+                        <div className={`menu ${open ? 'visible transition' : ''}`}>
+                            {renderedOptions}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <h3 style={{ color: selected.value }}>{`This text is ${selected.value}`}</h3>
+        </React.Fragment>
     )
 }
 
