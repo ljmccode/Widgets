@@ -37,10 +37,10 @@ const Search = () => {
 
     const renderedResults = results.map((result) => {
         return (
-            <div key={result.pageid} className='item'>
+            <div key={result.pageid} className='item' style={{ padding: 15 }}>
                 <div className="right floated content">
                     <a
-                        className="ui button"
+                        className="ui teal button"
                         href={`https://en.wikipedia.org?curid=${result.pageid}`}
                         target="_blank"
                         rel="noreferrer"
@@ -49,7 +49,7 @@ const Search = () => {
                     </a>
                 </div>
                 <div className="content">
-                    <div className="header">
+                    <div className="header" style={{ marginBottom: 5 }}>
                         {result.title}
                     </div>
                     {/* Be careful for XSS attacks when running this */}
