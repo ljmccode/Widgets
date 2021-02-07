@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Dropdown from './Dropdown';
+import Convert from './Convert';
 
 const key = 'AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM'
 
@@ -14,7 +15,7 @@ const options = [
     },
     {
         label: 'Hindi',
-        value:' hi'
+        value: ' hi'
     }
 ]
 
@@ -28,15 +29,19 @@ const Translate = () => {
             <div className="ui form">
                 <div className="field">
                     <label>Enter Text</label>
-                    <input value={text} onChange={(e)=> setText(e.target.value)}/>
+                    <input value={text} onChange={(e) => setText(e.target.value)} />
                 </div>
             </div>
-            <Dropdown 
-                label="Select a language" 
-                selected={language} 
-                onSelectedChange={setLanguage} 
-                options={options}/>
+            <Dropdown
+                label="Select a language"
+                selected={language}
+                onSelectedChange={setLanguage}
+                options={options} />
+            <hr />
+            <h3 className="ui header">Output</h3>
+            <Convert text={text} language={language}/>
         </div>
+
     )
 }
 
