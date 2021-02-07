@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
 import Translate from './components/Translate';
+import Route from './components/Route';
 
 const items = [
     {
@@ -34,39 +35,30 @@ const options = [
     }
 ];
 
-const showAccordion = () => {
-    if (window.location.pathname === '/') {
-        return <Accordion items={items}/>
-    }
-}
-
-const showList = () => {
-    if (window.location.pathname === '/list') {
-        return <Search />
-    }
-}
-
-const showDropdown = () => {
-    if (window.location.pathname === '/dropdown') {
-        return <Dropdown />
-    }
-}
-
-const showTranslate = () => {
-    if (window.location.pathname === '/translate') {
-        return <Translate />
-    }
-}
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
+    const [selected, setSeleted] = useState(options[0])
 
     return (
         <div style={{ margin: 50 }}>
-            {showAccordion()}
-            {showList()}
-            {showDropdown()}
-            {showTranslate()}
+            <Route path="/">
+                <Accordion items={items}/>
+            </Route>
+            <Route path="/list">
+                <Search />
+            </Route>
+            <Route path="/dropdown">
+                <Dropdown
+                    label="Select a color"
+                    options={options}
+                    selected={selected}
+                    onSelectedChange={setSeleted}
+                    />
+                <h3 style={{ color: selected.value }}>{`This text is ${selected.value}`}</h3>
+            </Route>
+            <Route path="/translate">
+                <Translate/>
+            </Route>
         </div>
     )
 }
